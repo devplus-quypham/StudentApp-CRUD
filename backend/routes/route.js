@@ -16,3 +16,13 @@ router.post("/create-student", (req, res, next) => {
     }
   });
 });
+// READ Students
+router.get("/", (req, res) => {
+  studentSchema.find((error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
