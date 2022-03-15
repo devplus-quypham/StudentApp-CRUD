@@ -13,9 +13,9 @@ mongoose
     `mongodb+srv://vanquy1306:quypv1306@crudapp.s69oc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
-      useCreateIndex: true,
+      //   useCreateIndex: true,
       useUnifiedTopology: true,
-      useFindAndModify: false,
+      //   useFindAndModify: false,
     }
   )
   .then(() => console.log("DB Connected"))
