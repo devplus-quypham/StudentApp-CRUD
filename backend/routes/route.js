@@ -26,3 +26,35 @@ router.get("/", (req, res) => {
     }
   });
 });
+// UPDATE student
+router
+  .route("/update-student/:id")
+  // Get Single Student
+  .get((req, res) => {
+    studentSchema.findById(req.params.id, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+      }
+    });
+  })
+
+  // Update Student Data
+  .put((req, res, next) => {
+    studentSchema.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      (error, data) => {
+        if (error) {
+          return next(error);
+          console.log(error);
+        } else {
+          res.json(data);
+          console.log("Student updated successfully !");
+        }
+      }
+    );
+  });
